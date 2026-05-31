@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Navy DEP START Guide – Retro 80s Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Retro 80s Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #050510;
+      --bg-card: rgba(10, 10, 30, 0.9);
+      --accent-pink: #ff4fd8;
+      --accent-cyan: #3cf2ff;
+      --accent-purple: #a66bff;
+      --accent-yellow: #ffe66b;
+      --text-main: #f5f5ff;
+      --text-muted: #a0a0c0;
+      --border-glow: 0 0 12px rgba(255, 79, 216, 0.6);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1a1035 0, #050510 55%, #000000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: relative;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      top: -20%;
+      left: -20%;
+      background: radial-gradient(circle at 20% 0, rgba(255, 79, 216, 0.15), transparent 60%),
+                  radial-gradient(circle at 80% 0, rgba(60, 242, 255, 0.15), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      color: var(--accent-cyan);
+      text-shadow:
+        0 0 6px rgba(60, 242, 255, 0.9),
+        0 0 18px rgba(166, 107, 255, 0.8);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tagline {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 230, 107, 0.7);
+      color: var(--accent-yellow);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, rgba(255, 230, 107, 0.1), rgba(255, 79, 216, 0.08));
+    }
+
+    .hero-meta {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta span::before {
+      content: "◆";
+      font-size: 0.6rem;
+      color: var(--accent-purple);
+    }
+
+    .hero-image-strip {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-strip img {
+      max-height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .toc-card {
+      position: sticky;
+      top: 1.5rem;
+      align-self: flex-start;
+      background: linear-gradient(145deg, rgba(10, 10, 30, 0.95), rgba(20, 10, 50, 0.95));
+      border-radius: 18px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(60, 242, 255, 0.35);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (max-width: 900px) {
+      .toc-card {
+        position: static;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .toc-title {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      color: var(--accent-pink);
+    }
+
+    .toc-description {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.85rem;
+    }
+
+    .toc-list > li {
+      margin-bottom: 0.4rem;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.35rem;
+      border-radius: 999px;
+      color: var(--text-main);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .toc-link span.index {
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      opacity: 0.8;
+    }
+
+    .toc-link.active {
+      background: linear-gradient(90deg, rgba(60, 242, 255, 0.18), rgba(255, 79, 216, 0.18));
+      color: var(--accent-yellow);
+      transform: translateX(2px);
+    }
+
+    .toc-link:hover {
+      background: rgba(60, 242, 255, 0.12);
+      text-decoration: none;
+    }
+
+    .toc-sublist {
+      list-style: none;
+      padding-left: 1.4rem;
+      margin: 0.2rem 0 0.4rem;
+      border-left: 1px dashed rgba(160, 160, 192, 0.4);
+    }
+
+    .toc-sublist li {
+      margin: 0.15rem 0;
+    }
+
+    .toc-sublist .toc-link {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .modules {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    section.module {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(166, 107, 255, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section.module::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(255, 79, 216, 0.12), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .module-header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .module-kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-yellow);
+      margin-bottom: 0.25rem;
+    }
+
+    .module-title {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+      color: var(--accent-cyan);
+      text-shadow: 0 0 6px rgba(60, 242, 255, 0.7);
+    }
+
+    .module-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .module-body {
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .module-body p {
+      margin: 0.4rem 0;
+    }
+
+    .module-body p.lead {
+      color: var(--accent-yellow);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+
+    .module-body blockquote {
+      margin: 0.6rem 0;
+      padding: 0.6rem 0.8rem;
+      border-left: 3px solid rgba(60, 242, 255, 0.6);
+      background: rgba(10, 10, 40, 0.8);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .module-body h3,
+    .module-body h4 {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      margin: 0.9rem 0 0.35rem;
+      color: var(--accent-purple);
+    }
+
+    .module-body h4 {
+      font-size: 0.85rem;
+      color: var(--accent-pink);
+    }
+
+    .module-body ul,
+    .module-body ol {
+      margin: 0.3rem 0 0.6rem 1.1rem;
+      padding-left: 0.4rem;
+    }
+
+    .module-body li {
+      margin: 0.15rem 0;
+    }
+
+    .module-body .inline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(60, 242, 255, 0.6);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      background: rgba(5, 5, 20, 0.9);
+    }
+
+    .pill::before {
+      content: "●";
+      font-size: 0.6rem;
+      color: var(--accent-pink);
+    }
+
+    .module-image {
+      margin: 0.7rem 0 0.4rem;
+      text-align: center;
+    }
+
+    .module-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(60, 242, 255, 0.4);
+      box-shadow: 0 0 18px rgba(60, 242, 255, 0.25);
+    }
+
+    .module-image figcaption {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .module-footer-note {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(160, 160, 192, 0.4);
+      padding-top: 0.4rem;
+    }
+
+    .appendix {
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.5rem;
+    }
+
+    .appendix h2 {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-yellow);
+      margin-bottom: 0.6rem;
+    }
+
+    .appendix h3 {
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-purple);
+      margin: 0.9rem 0 0.3rem;
+    }
+
+    .appendix p,
+    .appendix li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(60, 242, 255, 0.7);
+      background: radial-gradient(circle at 30% 0, rgba(60, 242, 255, 0.3), rgba(10, 10, 30, 0.95));
+      color: var(--accent-yellow);
+      font-family: 'Orbitron', system-ui, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(60, 242, 255, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 50;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #backToTop:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(255, 79, 216, 0.7);
+    }
+
+    #backToTop span {
+      display: block;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    #backToTop span.arrow {
+      font-size: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 3rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .toc-card {
+        padding: 1rem;
+      }
+
+      section.module {
+        padding: 1.25rem 1.1rem 1.3rem;
+      }
+
+      #backToTop {
+        width: 42px;
+        height: 42px;
+        right: 0.9rem;
+        bottom: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <h1 class="hero-title">Navy DEP START Guide</h1>
+    <p class="hero-subtitle">
+      A single-page, module-based course built from the official Navy Delayed Entry Program START Guide—
+      focused on core values, Warrior Toughness, and preparing Future Sailors for Recruit Training Command.
+    </p>
+    <div class="hero-tagline">Retro 80s • Clean • Mission-Focused</div>
+
+    <div class="hero-meta">
+      <span>Future Sailors &amp; Families</span>
+      <span>Single-Page Course • Scroll &amp; Explore</span>
+      <span>Content Source: Navy DEP START Guide (REV 4/26)</span>
+    </div>
+
+    <div class="hero-image-strip">
+      <!-- Replace src paths with actual images extracted from the PDF or related assets -->
+      <img src="assets/navy-logo.png" alt="U.S. Navy Logo" />
+      <img src="assets/forged-by-the-sea.png" alt="Forged by the Sea" />
+      <img src="assets/rtc-great-lakes.png" alt="Recruit Training Command Great Lakes" />
+    </div>
+  </header>
+
+  <main>
+    <div class="layout">
+      <!-- TABLE OF CONTENTS -->
+      <aside class="toc-card" aria-label="Course navigation">
+        <div class="toc-title">Course Modules</div>
+        <p class="toc-description">
+          Click any module to jump. Scroll to read in sequence. All content is on this single page.
+        </p>
+        <ol class="toc-list">
+          <li>
+            <a class="toc-link" href="#module-sailors-creed">
+              <span class="index">01</span>
+              <span>The Sailor's Creed</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-core-values">
+              <span class="index">02</span>
+              <span>Navy Core Values</span>
+            </a>
+            <ul class="toc-sublist">
+              <li><a class="toc-link" href="#module-core-values-honor">Honor</a></li>
+              <li><a class="toc-link" href="#module-core-values-courage">Courage</a></li>
+              <li><a class="toc-link" href="#module-core-values-commitment">Commitment</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-warrior-toughness">
+              <span class="index">03</span>
+              <span>Warrior Toughness &amp; Mindset Skills</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-warrior-ethos">
+              <span class="index">04</span>
+              <span>Define Your Warrior Ethos</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-parents">
+              <span class="index">05</span>
+              <span>Parents, Spouse &amp; RTC Graduation</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-religious-accommodation">
+              <span class="index">06</span>
+              <span>Accommodation of Religious Practices</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-dep">
+              <span class="index">07</span>
+              <span>Delayed Entry Program &amp; Standards</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-advancement">
+              <span class="index">08</span>
+              <span>Advancement Opportunities</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-rtc-prep">
+              <span class="index">09</span>
+              <span>RTC Preparations &amp; Navy Knowledge</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#module-rtc-docs">
+              <span class="index">10</span>
+              <span>Required Documents &amp; Items</span>
+            </a>
+          </li>
+          <li>
+            <a class="toc-link" href="#appendix-sources">
+              <span class="index">A</span>
+              <span>Appendix: Sources &amp; Credits</span>
+            </a>
+          </li>
+        </ol>
+      </aside>
+
+      <!-- MODULES -->
+      <div class="modules">
+        <!-- MODULE 1: SAILOR'S CREED -->
+        <section id="module-sailors-creed" class="module" aria-labelledby="module-sailors-creed-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 01</div>
+              <h2 id="module-sailors-creed-title" class="module-title">The Sailor's Creed</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Identity &amp; Ethos</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Your identity as a United States Sailor begins with the Sailor's Creed.</p>
+
+            <blockquote>
+              “I am a United States Sailor. I will support and defend the Constitution of the United States of America and I will obey the
+              orders of those appointed over me.”  
+              <br /><br />
+              “I proudly serve my country's Navy combat team with Honor, Courage and Commitment. I am committed to excellence and
+              the fair treatment of all.”
+            </blockquote>
+
+            <p>
+              In this course, treat the Sailor's Creed as your anchor. Read it aloud, reflect on each line, and connect it to your
+              personal reasons for joining. The Creed ties directly into the Navy Core Values you will study next.
+            </p>
+
+            <div class="module-footer-note">
+              Source excerpted from the official Navy DEP START Guide Sailor's Creed section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 2: NAVY CORE VALUES -->
+        <section id="module-core-values" class="module" aria-labelledby="module-core-values-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 02</div>
+              <h2 id="module-core-values-title" class="module-title">Navy Core Values</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Honor</div>
+              <div class="pill">Courage</div>
+              <div class="pill">Commitment</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">For 250 years, Sailors have stood tall for the principles that make America strong.</p>
+
+            <blockquote>
+              “In the Navy, these unchanging principles – Honor, Courage and Commitment – are known as Core Values. To know,
+              understand and faithfully live by them is the duty of all members of the U.S. Navy.”
+            </blockquote>
+
+            <p>
+              This module breaks down each Core Value into practical expectations for your daily conduct as a Future Sailor and
+              future member of the fleet.
+            </p>
+
+            <h3 id="module-core-values-honor">Honor</h3>
+            <p>
+              Honor is about integrity in every relationship and decision. The guide explains that Sailors must
+              “conduct ourselves in the highest ethical manner in all relationships with peers, superiors and subordinates” and
+              “abide by an uncompromising code of integrity, taking responsibility for our actions and keeping our word.”
+            </p>
+            <ul>
+              <li><strong>Ethical conduct:</strong> Be honest and truthful in all dealings, inside and outside the Navy.</li>
+              <li><strong>Responsibility:</strong> Own your actions and follow through on commitments.</li>
+              <li><strong>24/7 standard:</strong> Live up to legal and ethical responsibilities at all times, not just on duty.</li>
+            </ul>
+
+            <h3 id="module-core-values-courage">Courage</h3>
+            <p>
+              Courage is the moral and mental strength to do what is right, even when it is difficult. The guide notes that Sailors must
+              “make decisions in the best interest of the Navy and the nation, without regard to personal consequences” and meet
+              challenges “while adhering to a higher standard of personal conduct and decency.”
+            </p>
+            <ul>
+              <li><strong>Operational courage:</strong> Face hazardous or demanding missions with professionalism.</li>
+              <li><strong>Moral courage:</strong> Speak up and act correctly even when it is unpopular.</li>
+              <li><strong>Stewardship:</strong> Use resources entrusted to you honestly and efficiently.</li>
+            </ul>
+
+            <h3 id="module-core-values-commitment">Commitment</h3>
+            <p>
+              Commitment is about caring for people and relentlessly improving. The guide emphasizes that Sailors will “demand
+              respect up and down the chain of command” and “be committed to positive change and constant improvement.”
+            </p>
+            <ul>
+              <li><strong>Respect:</strong> Treat everyone with dignity, regardless of race, religion or sex.</li>
+              <li><strong>Team focus:</strong> Work together to improve the quality of your work, your people and yourself.</li>
+              <li><strong>Excellence:</strong> Strive for technical mastery and high moral character in your rating and duties.</li>
+            </ul>
+
+            <div class="module-footer-note">
+              Core Values content adapted from the Navy DEP START Guide “Navy Core Values” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 3: WARRIOR TOUGHNESS -->
+        <section id="module-warrior-toughness" class="module" aria-labelledby="module-warrior-toughness-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 03</div>
+              <h2 id="module-warrior-toughness-title" class="module-title">Warrior Toughness &amp; Mindset Skills</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Mind</div>
+              <div class="pill">Body</div>
+              <div class="pill">Spirit</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Warrior Toughness is the Navy’s deliberate approach to optimizing human performance.</p>
+
+            <blockquote>
+              “The ability to take a hit and keep going is critical in warfare and in life. Boot camp focuses on developing the tools you
+              will need to perform at increasingly demanding levels of performance for the situation at hand.”
+            </blockquote>
+
+            <p>
+              Warrior Toughness starts with your “Why”—your personal Warrior Ethos—and then builds skills across mind, body and
+              spirit so you can perform under pressure and recover quickly from stress.
+            </p>
+
+            <h3>Key Warrior Toughness Mindset Skills</h3>
+            <div class="inline-grid">
+              <div>
+                <h4>Warrior Ethos</h4>
+                <p>
+                  A written statement of your personal values and purpose. It connects you to a greater mission and helps you act
+                  with character and decisiveness. Review and refine it regularly.
+                </p>
+              </div>
+              <div>
+                <h4>Healthy Behaviors</h4>
+                <p>
+                  Balanced strengthening of mind, body and spirit. Treat yourself as a high-performing asset—sleep, nutrition,
+                  movement and spiritual practices all matter.
+                </p>
+              </div>
+              <div>
+                <h4>Performance Statements</h4>
+                <p>
+                  Brief, realistic phrases you repeat to stay focused and motivated during stress. Develop them before challenging
+                  evolutions and use them in the moment.
+                </p>
+              </div>
+              <div>
+                <h4>Recalibrate (Breathing)</h4>
+                <p>
+                  A breathing technique to reduce the negative effects of stress or adrenaline. Practice routinely so you can use it
+                  without needing a time-out.
+                </p>
+              </div>
+              <div>
+                <h4>Mindfulness</h4>
+                <p>
+                  Present-moment awareness of yourself and your situation. It helps you respond deliberately instead of reacting
+                  emotionally in challenging environments.
+                </p>
+              </div>
+              <div>
+                <h4>Goal Setting</h4>
+                <p>
+                  A roadmap of personal milestones for continuous improvement. Establish, implement and review goals while
+                  tracking progress.
+                </p>
+              </div>
+              <div>
+                <h4>Mental Rehearsal</h4>
+                <p>
+                  Vividly imagine successful execution of a task. This builds confidence and prepares you for high-risk, high-stakes
+                  operations.
+                </p>
+              </div>
+              <div>
+                <h4>Peer-to-Peer Support</h4>
+                <p>
+                  You are responsible for observing and supporting your shipmates. Proactive communication builds connection,
+                  inclusion and performance.
+                </p>
+              </div>
+              <div>
+                <h4>Energy Management</h4>
+                <p>
+                  Match your energy to the demands of the situation. Learn to recognize your own energy level and adjust as needed.
+                </p>
+              </div>
+              <div>
+                <h4>Intentional Recovery</h4>
+                <p>
+                  Deliberately reset mind, body and spirit between challenges. This maintains performance over time and builds
+                  resilience.
+                </p>
+              </div>
+              <div>
+                <h4>Flexible Thinking</h4>
+                <p>
+                  Think about situations in new or different ways. Anticipate, plan and adapt to evolving conditions; embrace
+                  uncertainty.
+                </p>
+              </div>
+              <div>
+                <h4>Sea Stories</h4>
+                <p>
+                  Real experiences that highlight skills and values. Sharing and reflecting on sea stories reinforces the consequences
+                  of choices and the importance of Navy culture.
+                </p>
+              </div>
+            </div>
+
+            <h3>Warrior Mindset Cycle</h3>
+            <p>
+              The guide describes a four-phase Warrior Mindset—Commitment, Preparation, Execution and Reflection—that separates
+              good commands from great ones.
+            </p>
+            <ul>
+              <li><strong>Commitment:</strong> Define your purpose and philosophy for living and serving.</li>
+              <li><strong>Preparation:</strong> Train mind, body and spirit rigorously; “when you're under pressure, you don't rise to the occasion—you sink to your level of training.”</li>
+              <li><strong>Execution:</strong> Apply Warrior Toughness skills under real pressure, minimizing the “Fog of War.”</li>
+              <li><strong>Reflection:</strong> Capture lessons learned and continuously improve as an individual and as a team.</li>
+            </ul>
+
+            <div class="module-image">
+              <figure>
+                <img src="assets/warrior-mindset-diagram.png" alt="Warrior Mindset diagram: Mind, Body, Spirit with Commitment, Preparation, Execution, Reflection" />
+                <figcaption>Warrior Mindset cycle adapted from the Navy DEP START Guide Warrior Toughness section.</figcaption>
+              </figure>
+            </div>
+
+            <div class="module-footer-note">
+              Warrior Toughness content adapted from the Navy DEP START Guide “Warrior Toughness” and “Warrior Toughness – Building Our Warfighters” sections.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 4: DEFINE YOUR WARRIOR ETHOS -->
+        <section id="module-warrior-ethos" class="module" aria-labelledby="module-warrior-ethos-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 04</div>
+              <h2 id="module-warrior-ethos-title" class="module-title">Define Your Warrior Ethos</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Your “Why”</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Your Warrior Ethos is your guiding compass—who you are, what you fight for, and where you’re going.</p>
+
+            <blockquote>
+              “Your Warrior Ethos forms the foundation for developing your fighting spirit throughout boot camp. Who you are, what
+              your values are, what you are willing to fight for, all inform your goals and help drive you as a warrior in the United States
+              Navy.”
+            </blockquote>
+
+            <h3>Guided Reflection (from the START Guide)</h3>
+            <p>Use these prompts (adapted directly from the guide) to write your own Warrior Ethos statement:</p>
+            <ol>
+              <li><strong>What has made you who you are?</strong> Think about family, mentors, teams, organizations or life events.</li>
+              <li>
+                <strong>What are you willing to fight for?</strong>  
+                For yourself (self-respect, success), for the greater good (family, vulnerable people), or for a higher power (God or anything transcendent).
+              </li>
+              <li><strong>What values show up in your “why”?</strong> Examples: truth, hope, love, honor, freedom, honesty, respect.</li>
+              <li><strong>What are your goals for what you’re willing to fight for?</strong> List concrete outcomes you want to see.</li>
+              <li>
+                <strong>Write your Warrior Ethos statement.</strong>  
+                Summarize who you are (identity), what you are fighting for (connections), what you believe (values) and where you are going (destination).
+              </li>
+            </ol>
+
+            <h3>Optional Enhancement: On-Page Warrior Ethos Draft</h3>
+            <p>
+              You can paste and refine your Warrior Ethos in a text area below while you study this module. (Note: this is not saved
+              anywhere—copy it to your own notes if you want to keep it.)
+            </p>
+            <textarea id="warriorEthosDraft" rows="6" style="width:100%; border-radius:10px; border:1px solid rgba(60,242,255,0.5); background:rgba(5,5,20,0.95); color:#f5f5ff; padding:0.7rem; font-family:'Montserrat',system-ui,sans-serif; font-size:0.9rem;"></textarea>
+
+            <div class="module-footer-note">
+              Reflection questions and definitions adapted from the Navy DEP START Guide “Define Your Warrior Ethos – What Is Your Why?” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 5: PARENTS / SPOUSE & RTC GRADUATION -->
+        <section id="module-parents" class="module" aria-labelledby="module-parents-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 05</div>
+              <h2 id="module-parents-title" class="module-title">Parents, Spouse &amp; RTC Graduation</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Family Readiness</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Future Sailors don’t walk this path alone—family support is part of the Navy story.</p>
+
+            <h3>Welcome Aboard, Parents and Spouses</h3>
+            <blockquote>
+              “Welcome to the Navy family. We know you are very proud of your family member and we would like to share with you the
+              many superb career and educational opportunities that are available in the Navy.”
+            </blockquote>
+            <p>
+              The guide encourages families to attend local Delayed Entry Program (DEP) meetings. These meetings are mandatory for
+              Future Sailors and help everyone understand what to expect from Recruit Training Command (RTC).
+            </p>
+            <ul>
+              <li><strong>Stay informed:</strong> Attend DEP meetings when invited.</li>
+              <li><strong>Ask questions:</strong> Recruiters are a resource for both Future Sailors and families.</li>
+              <li><strong>Support through letters:</strong> Mail during boot camp can be a major morale boost.</li>
+            </ul>
+
+            <h3>RTC Graduation</h3>
+            <blockquote>
+              “Recruit graduation means public recognition for all the hard work, determination and perseverance required to complete
+              Recruit Training. Families are a big part of the reason for your Recruit's success and you have every right to feel proud.”
+            </blockquote>
+            <p>
+              Access to the base on graduation day is restricted to those on the access list. Each graduating Sailor is responsible for
+              identifying who will attend, so coordinate early with your Future Sailor.
+            </p>
+            <ul>
+              <li><strong>Check official info:</strong> Visit <code>bootcamp.navy.mil</code> before making travel plans.</li>
+              <li><strong>Access list:</strong> Only those listed by the Sailor will be allowed on base for graduation.</li>
+              <li><strong>Emotional support:</strong> Letters and encouragement help Recruits handle the “initial shock” of military life.</li>
+            </ul>
+
+            <h3>When Recruiters Transfer</h3>
+            <p>
+              The guide explains that transitions are normal in the Navy. If a Recruiter transfers, another Recruiter “relieves the watch”
+              and assumes responsibility for preparing the Future Sailor for boot camp.
+            </p>
+
+            <div class="module-footer-note">
+              Family and graduation content adapted from the Navy DEP START Guide “Welcome Aboard Parents/Spouse,” “RTC Graduation” and “When Recruiters Transfer” sections.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 6: ACCOMMODATION OF RELIGIOUS PRACTICES -->
+        <section id="module-religious-accommodation" class="module" aria-labelledby="module-religious-accommodation-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 06</div>
+              <h2 id="module-religious-accommodation-title" class="module-title">Accommodation of Religious Practices</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Policy Awareness</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">The Navy seeks to accommodate religious practices when it does not impact readiness or discipline.</p>
+
+            <blockquote>
+              “Department of the Navy policy is to accommodate the doctrinal or traditional observances of the religious faith practiced
+              by individual members when they will not have an adverse impact on military readiness, individual or unit readiness, unit
+              cohesion, health, safety or discipline.”
+            </blockquote>
+
+            <p>
+              Accommodation is not guaranteed in every situation and depends on military necessity. The Commanding Officer has the
+              authority to determine when mission requirements limit accommodation.
+            </p>
+
+            <h3>Key Points for Future Sailors</h3>
+            <ul>
+              <li><strong>In-person explanation:</strong> Recruiting personnel must meet with you to explain the policy.</li>
+              <li><strong>Written request:</strong> If you desire an accommodation, you must inform your Recruiter and submit the request in writing.</li>
+              <li><strong>Written approval:</strong> A designated authority must approve the accommodation in writing before you are eligible to enlist.</li>
+            </ul>
+
+            <div class="module-footer-note">
+              Policy summary adapted from the Navy DEP START Guide “Accommodation of Religious Practices” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 7: DELAYED ENTRY PROGRAM -->
+        <section id="module-dep" class="module" aria-labelledby="module-dep-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 07</div>
+              <h2 id="module-dep-title" class="module-title">Delayed Entry Program &amp; Standards</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Standards</div>
+              <div class="pill">Integrity</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Your time in the Delayed Entry Program (DEP) is preparation time—physically, mentally and administratively.</p>
+
+            <h3>Body Composition &amp; Physical Readiness</h3>
+            <p>
+              The guide states that “Recruits must fall within approved body composition measurements. Make the most of all physical
+              training opportunities during the Delayed Entry Program.” Use this time to build healthy habits and meet Navy standards.
+            </p>
+
+            <h3>Tattoo &amp; Body Art Markings</h3>
+            <p>
+              Once you enlist into the DEP, obtaining additional tattoos is prohibited until you complete basic training. New tattoos or
+              piercings can risk infection or disqualify you.
+            </p>
+            <ul>
+              <li><strong>Content restrictions:</strong> Tattoos that are obscene, sexually explicit, discriminatory, or affiliated with gangs, supremacist or extremist groups, or illegal drug use are prohibited.</li>
+              <li><strong>Location restrictions:</strong> No tattoos on the head, face (including ears) or scalp (including hairline).</li>
+              <li><strong>Authorized areas:</strong> One tattoo on the back of the neck (max one inch in any dimension) and visible tattoos below the elbow or knee are allowed, as long as content is acceptable.</li>
+              <li><strong>Uniform visibility:</strong> Torso tattoos must not be visible through white uniform clothing.</li>
+            </ul>
+
+            <h3>Your Responsibility to Your Recruiter</h3>
+            <ul>
+              <li><strong>Civility:</strong> Treat Recruiters with the same courtesy and respect they provide you.</li>
+              <li><strong>Honesty:</strong> Be truthful when providing information for your enlistment application.</li>
+              <li><strong>Updates:</strong> Notify your Recruiter of any changes in education, health, police involvement, drug use or dependency.</li>
+              <li><strong>Required viewing:</strong> Ensure you have viewed “The Faces of Boot Camp” and “Sexual Assault Prevention &amp; Response (SAPR-D)” videos.</li>
+            </ul>
+
+            <h3>Recruiter Responsibilities (What They Must Not Do)</h3>
+            <ul>
+              <li>Coach or entice you to provide false statements, records or documents.</li>
+              <li>Bribe or coerce you to process for enlistment.</li>
+              <li>Intervene with police or judicial authorities on your behalf.</li>
+              <li>Form dating or private, unofficial social relationships with you.</li>
+              <li>Engage in unofficial financial or business dealings with you.</li>
+              <li>Transport you in their personal vehicle, gamble with you, or solicit/accept anything of value from you.</li>
+            </ul>
+
+            <h3>Warning Order &amp; UCMJ Article 83</h3>
+            <blockquote>
+              “The information you provide and/or acknowledge receipt of is considered a statement of fact to the best of your
+              knowledge. Should you provide or acknowledge information that is knowingly false, you may be prosecuted in accordance
+              with the Uniform Code of Military Justice (UCMJ).”
+            </blockquote>
+            <p>
+              Providing false information about police involvement, prior service, education, dependents, drug use, medical history, age
+              or other enlistment factors can lead to charges under UCMJ Article 83 (Fraudulent Enlistment, Appointment, or Separation).
+            </p>
+
+            <div class="module-footer-note">
+              DEP responsibilities and standards adapted from the Navy DEP START Guide “Delayed Entry Program” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 8: ADVANCEMENT OPPORTUNITIES -->
+        <section id="module-advancement" class="module" aria-labelledby="module-advancement-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 08</div>
+              <h2 id="module-advancement-title" class="module-title">Advancement Opportunities in DEP</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Paygrade Acceleration</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">The Referral Recognition Program and prior achievements can advance you to E-2 or E-3 before or at RTC.</p>
+
+            <blockquote>
+              “One of the benefits of Delayed Entry Program is the Referral Recognition Program… If anyone you refer enlists in the
+              Navy, you may be advanced to pay grade E-2 or E-3.”
+            </blockquote>
+
+            <h3>Advancement to E-2</h3>
+            <ul>
+              <li><strong>Referrals:</strong> One enlisted contract (Nuclear Field or Special Operations), or two enlisted contracts (non-Nuclear Field/Special Operations), or one officer accession.</li>
+              <li><strong>JROTC:</strong> Completion of two years in JROTC.</li>
+              <li><strong>Education:</strong> 24 semester hours or 36 quarter credit hours at an accredited institution, or 1,080 classroom hours at an accredited vocational institute.</li>
+              <li><strong>Military academies:</strong> Two years and graduation from an accredited high school-level military academy.</li>
+              <li><strong>Youth programs:</strong> Advancement to E-2 in Naval Sea Cadet program, Quartermaster in Sea Scouts, E-5 in Young Marines, or Civil Air Patrol Billy Mitchell Award.</li>
+              <li><strong>At RTC:</strong> Passing a Recruit Division Commander's assessment at boot camp.</li>
+            </ul>
+
+            <h3>Advancement to E-3</h3>
+            <ul>
+              <li><strong>Referrals:</strong> Two enlisted contracts (Nuclear Field or Special Operations), four enlisted contracts (non-Nuclear Field/Special Operations), or two officer accessions.</li>
+              <li><strong>JROTC:</strong> Completion of three years in JROTC.</li>
+              <li><strong>Education:</strong> 48+ semester hours or 72+ quarter credit hours at an accredited institution, or 2,160 classroom hours at an accredited vocational institute.</li>
+              <li><strong>Youth programs:</strong> Advancement to E-3 in Naval Sea Cadet program, or completion of Eagle Scout or Girl Scout Gold Award.</li>
+            </ul>
+
+            <p>
+              Note: All requirements must be met prior to reporting to RTC. Keep documentation organized and ready to present.
+            </p>
+
+            <div class="module-footer-note">
+              Advancement criteria adapted from the Navy DEP START Guide “Advancement Opportunities – Referral Recognition Program” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 9: RTC PREPARATIONS & NAVY KNOWLEDGE -->
+        <section id="module-rtc-prep" class="module" aria-labelledby="module-rtc-prep-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 09</div>
+              <h2 id="module-rtc-prep-title" class="module-title">RTC Preparations &amp; Navy Knowledge</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Boot Camp Ready</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">You are required to know and recite key Navy knowledge before completing Recruit Training.</p>
+
+            <h3>Mission of the Navy</h3>
+            <blockquote>
+              “The mission of the Navy is to maintain, train and equip combat-ready naval forces capable of winning wars, deterring
+              aggression and maintaining freedom of the seas.”
+            </blockquote>
+
+            <h3>Vision of the Navy</h3>
+            <blockquote>
+              “We are an integrated naval force that will provide maritime dominance for the nation… Our Core Values and accountability
+              at the individual and organizational levels will shape our culture and guide our actions.”
+            </blockquote>
+
+            <h3>The Eleven General Orders of a Sentry</h3>
+            <p>
+              You must be able to quote any one—or all—of the Eleven General Orders of a Sentry from memory by the fifth day of the
+              first week of training. The guide states that “it is imperative that you learn the Eleven General Orders of a Sentry while you
+              are in the Delayed Entry Program.”
+            </p>
+            <ol>
+              <li>To take charge of this post and all government property in view.</li>
+              <li>To walk my post in a military manner, keeping always on the alert and observing everything that takes place within sight or hearing.</li>
+              <li>To report all violations of orders I am instructed to enforce.</li>
+              <li>To repeat all calls from posts more distant from the Guardhouse than my own.</li>
+              <li>To quit my post only when properly relieved.</li>
+              <li>To receive, obey and pass on to the sentry who relieves me all orders from the Commanding Officer, Command Duty Officer, Officer of the Deck and Officers and Petty Officers of the Watch only.</li>
+              <li>To talk to no one except in the line of duty.</li>
+              <li>To give the alarm in case of fire or disorder.</li>
+              <li>To call the Officer of the Deck in any case not covered by instructions.</li>
+              <li>To salute all Officers and all colors and standards not cased.</li>
+              <li>To be especially watchful at night and during the time for challenging, to challenge all persons on or near my post and to allow no one to pass without proper authority.</li>
+            </ol>
+
+            <h3>RTC Maxim</h3>
+            <blockquote>
+              “I will not lie, cheat or steal, nor tolerate those among us who do.”
+            </blockquote>
+
+            <p>
+              The guide also directs you to commit additional chapters to memory, including Core Values/Attributes, RTC Chain of
+              Command, Drill &amp; Etiquette, Navy Terminology and Rank &amp; Recognition. Use this course as a starting point and supplement
+              with the full guide.
+            </p>
+
+            <div class="module-footer-note">
+              Navy knowledge content adapted from the Navy DEP START Guide “RTC Preparations – Navy Knowledge” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 10: REQUIRED DOCUMENTS & ITEMS -->
+        <section id="module-rtc-docs" class="module" aria-labelledby="module-rtc-docs-title">
+          <div class="module-header">
+            <div>
+              <div class="module-kicker">Module 10</div>
+              <h2 id="module-rtc-docs-title" class="module-title">Required Documents &amp; Items for RTC</h2>
+            </div>
+            <div class="module-meta">
+              <div class="pill">Checklists</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="lead">Arriving prepared at RTC starts with having the right documents—and leaving the wrong items at home.</p>
+
+            <h3>All Recruits Must Have</h3>
+            <ul>
+              <li>Social Security card.</li>
+              <li>Immunization records.</li>
+              <li>
+                Two forms of valid identification (one must have a photo).  
+                The name on all identification must match; if not, bring legal name change documentation.
+              </li>
+            </ul>
+            <p>Acceptable forms of ID include:</p>
+            <ul>
+              <li>U.S. Passport or Foreign Passport.</li>
+              <li>Driver's License.</li>
+              <li>U.S. Military Dependent's ID Card.</li>
+              <li>Personal Identity Verification Card.</li>
+              <li>Voter's Registration Card.</li>
+              <li>Certificate of U.S. Citizenship or Certificate of Naturalization.</li>
+            </ul>
+
+            <h3>Do Not Bring to RTC</h3>
+            <p>
+              The guide lists items that must not be brought to Recruit Training. These include, but are not limited to:
+            </p>
+            <ul>
+              <li>All alcohol-based health and comfort items.</li>
+              <li>All electronic items.</li>
+              <li>Curling irons.</li>
+              <li>All books and magazines.</li>
+              <li>Cards, dice or other gambling paraphernalia.</li>
+              <li>Large and bulky stationery.</li>
+              <li>Large plastic picks, rakes, or any made of metal.</li>
+              <li>Anything made of glass, including mirrors.</li>
+              <li>Double-edged razor blades.</li>
+              <li>Cigarettes, cigars, pipes, chewing or dipping tobacco.</li>
+              <li>Large deodorants (larger than three ounces).</li>
+            </ul>
+
+            <p>
+              Always cross-check with the most current official RTC packing list, as policies can change. When in doubt, ask your
+              Recruiter before you ship.
+            </p>
+
+            <div class="module-footer-note">
+              Checklist content adapted from the Navy DEP START Guide “RTC Preparations (Continued)” section.
+            </div>
+          </div>
+        </section>
+
+        <!-- APPENDIX: SOURCES -->
+        <section id="appendix-sources" class="appendix" aria-labelledby="appendix-sources-title">
+          <h2 id="appendix-sources-title">Appendix: Sources &amp; Credits</h2>
+
+          <h3>Primary Source Document</h3>
+          <p>
+            <strong>Navy DEP START Guide (REV 4/26)</strong> – “START Standards • Transitions • Acknowledgement • Requirements • Training: A Comprehensive Guide for Future Sailors.”  
+            This course site draws its text from sections including:
+          </p>
+          <ul>
+            <li>Welcome Aboard, Future Sailor</li>
+            <li>The Sailor’s Creed</li>
+            <li>Navy Core Values</li>
+            <li>Warrior Toughness &amp; Warrior Mindset</li>
+            <li>Define Your Warrior Ethos – What Is Your Why?</li>
+            <li>Welcome Aboard Parents/Spouse &amp; RTC Graduation</li>
+            <li>Accommodation of Religious Practices</li>
+            <li>Delayed Entry Program &amp; Warning Order / UCMJ Article 83</li>
+            <li>Advancement Opportunities – Referral Recognition Program</li>
+            <li>RTC Preparations – Navy Knowledge &amp; Eleven General Orders of a Sentry</li>
+            <li>RTC Preparations (Continued) – Required Documents &amp; Items</li>
+          </ul>
+
+          <h3>Images &amp; Visuals</h3>
+          <p>
+            Image placeholders such as <code>navy-logo.png</code>, <code>forged-by-the-sea.png</code>, <code>rtc-great-lakes.png</code> and
+            <code>warrior-mindset-diagram.png</code> are intended to be populated with assets extracted from the official Navy DEP START
+            Guide or other authorized Navy imagery. Replace these paths with your actual image files in the <code>assets/</code> directory.
+          </p>
+
+          <h3>Typography &amp; Styling</h3>
+          <p>
+            Fonts used: <strong>Orbitron</strong> (for headings, retro 80s sci‑fi feel) and <strong>Montserrat</strong> (for body text, clean and readable), loaded via
+            Google Fonts. Color palette and glow effects are inspired by 80s neon aesthetics while maintaining a minimalist, legible layout.
+          </p>
+
+          <h3>JavaScript Enhancements</h3>
+          <ul>
+            <li>Smooth scrolling and active Table of Contents highlighting.</li>
+            <li>Floating “Return to Top” button that appears after scrolling.</li>
+            <li>Optional Warrior Ethos draft text area (client-side only, no storage).</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- RETURN TO TOP BUTTON -->
+  <button id="backToTop" aria-label="Return to top">
+    <span class="arrow">↑</span>
+    <span>Top</span>
+  </button>
+
+  <script>
+    // Smooth scroll for internal links (TOC)
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Active TOC highlighting based on scroll position
+    const sections = document.querySelectorAll('section.module, section.appendix');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function setActiveToc() {
+      let currentId = null;
+      const offset = 120;
+
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          currentId = '#' + section.id;
+        }
+      });
+
+      tocLinks.forEach(function (link) {
+        if (link.getAttribute('href') === currentId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Back to top button behavior
+    const backToTopBtn = document.getElementById('backToTop');
+
+    function handleBackToTopVisibility() {
+      if (window.scrollY > 260) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function () {
+      setActiveToc();
+      handleBackToTopVisibility();
+    });
+
+    // Initial state
+    setActiveToc();
+    handleBackToTopVisibility();
+  </script>
+</body>
+</html>
